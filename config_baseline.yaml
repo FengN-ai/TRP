@@ -1,0 +1,61 @@
+# TRP-Grasp ablation baseline. Identical to config_full.yaml except
+# CAPD and VA-Fusion are disabled, for the module ablation.
+
+data_root:   "./data/LabGrasp-Deploy-Real"
+train_jsonl: "./data/LabGrasp-Deploy-Real/annotations/train.jsonl"
+val_jsonl:   "./data/LabGrasp-Deploy-Real/annotations/val.jsonl"
+test_jsonl:  "./data/LabGrasp-Deploy-Real/annotations/test.jsonl"
+output_dir:  "./outputs/checkpoints/baseline"
+log_dir:     "./outputs/logs/baseline"
+resume_from: ""
+
+llm_name_or_path: "./pretrained/qwen2-7b"
+dinov2_name:      "./pretrained/dinov2-large"
+siglip_name:      "./pretrained/siglip"
+
+use_capd: false
+use_vaf: false
+use_4bit_quant: true
+exclude_classes: ["pipette"]
+strict_data: true
+seed: 42
+
+num_queries: 64
+fpn_channels: 256
+spatial_beta: 2.0
+num_visual_prefix: 4
+lora_rank: 16
+lora_alpha: 32
+lora_lr: 0.00003
+max_seq_len: 512
+num_workers: 4
+stage1_epochs: 3
+stage2_epochs: 6
+per_device_batch_size: 1
+grad_accum_steps: 16
+learning_rate: 0.00003
+weight_decay: 0.05
+max_grad_norm: 1.0
+warmup_ratio: 0.03
+lambda_text: 1.0
+lambda_mask: 2.0
+lambda_pose: 1.5
+smooth_l1_beta: 0.1
+focal_alpha: 0.25
+focal_gamma: 2.0
+dice_ramp_steps: 2500
+area_weight_min: 0.5
+area_weight_max: 5.0
+area_reference_ratio: 0.05
+lambda_heatmap: 1.0
+heatmap_fg_weight: 5.0
+lambda_consist: 1.0
+lambda_vp: 0.1
+capd_anneal_warmup: 0.1
+capd_anneal_end: 0.7
+capd_alpha_end: 0.9
+prefix_contrastive_weight: 0.0
+use_pcgrad: false
+pcgrad_interval: 4
+log_every_n_steps: 20
+eval_every_n_steps: 400

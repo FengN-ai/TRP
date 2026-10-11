@@ -2,6 +2,21 @@
 
 Research code for task-conditioned grasping with VA-Fusion, intent-shared spatial decoding, and CAPD. The model combines DINOv2 and SigLIP visual features with a Qwen2 language backbone, a mask branch, and a planar grasp pose branch.
 
+## Dataset
+
+The **LabGrasp** dataset suite is available via Baidu Netdisk.
+
+- **Download:** [LabGrasp Dataset](https://pan.baidu.com/s/1lHhkW0Ub8eCxE2t-axu10g?pwd=g76s)
+- **Extraction code:** `g76s`
+
+LabGrasp contains three subsets:
+
+- **LabGrasp-Basic**
+- **LabGrasp-Deploy-Syn**
+- **LabGrasp-Deploy-Real**
+
+After downloading, place the required dataset under the `data/` directory following the structure described below.
+
 ## Repository layout
 
 | File | Purpose |

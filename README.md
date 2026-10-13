@@ -2,12 +2,36 @@
 
 Research code for task-conditioned grasping with VA-Fusion, intent-shared spatial decoding, and CAPD. The model combines DINOv2 and SigLIP visual features with a Qwen2 language backbone, a mask branch, and a planar grasp pose branch.
 
+
 ## Dataset
 
-The **LabGrasp** dataset suite is available via Baidu Netdisk.
+The **LabGrasp** dataset suite is publicly available on [Hugging Face](https://huggingface.co/datasets/xingyunyan/LabGrasp).
 
-- **Download:** [LabGrasp Dataset](https://pan.baidu.com/s/1lHhkW0Ub8eCxE2t-axu10g?pwd=g76s)
-- **Extraction code:** `g76s`
+LabGrasp consists of three subsets for task-conditioned vision-language grasping in scientific laboratories.
+
+| Subset | Archive size | Download |
+|---|---:|---|
+| LabGrasp-Basic | 49.8 GB | [Download](https://huggingface.co/datasets/xingyunyan/LabGrasp/resolve/main/LabGrasp-Basic.zip?download=true) |
+| LabGrasp-Deploy-Syn | 1.32 GB | [Download](https://huggingface.co/datasets/xingyunyan/LabGrasp/resolve/main/LabGrasp-Deploy-Syn.zip?download=true) |
+| LabGrasp-Deploy-Real | 6.87 GB | [Download](https://huggingface.co/datasets/xingyunyan/LabGrasp/resolve/main/LabGrasp-Deploy-Real.zip?download=true) |
+
+### Download
+
+Download the full dataset from the [LabGrasp Hugging Face repository](https://huggingface.co/datasets/xingyunyan/LabGrasp), or use the Hugging Face CLI:
+
+```bash
+pip install -U huggingface_hub
+hf download xingyunyan/LabGrasp --repo-type dataset --include "*.zip" --local-dir ./downloads
+```
+
+To download a single subset, for example LabGrasp-Deploy-Real:
+
+```bash
+hf download xingyunyan/LabGrasp LabGrasp-Deploy-Real.zip --repo-type dataset --local-dir ./downloads
+```
+
+After downloading, extract the required archive and organize the data according to the paths specified in the training configurations. See [TRAINING.md](TRAINING.md) for details.
+  
 
 LabGrasp contains three subsets:
 
